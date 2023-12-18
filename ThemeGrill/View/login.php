@@ -28,12 +28,12 @@ require('header.php');
     <form action="processLogin.php" method="post" name="login">
         <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control"  name="email" id="email" aria-describedby="email" placeholder="Enter email">
+            <input type="email" class="form-control"  name="email" id="email" aria-describedby="email" placeholder="Enter email" required>
 
         </div><br>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+            <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password" required>
         </div>
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
