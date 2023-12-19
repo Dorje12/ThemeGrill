@@ -25,6 +25,7 @@ if ($result->num_rows > 0) {
     $contact = $row['contact'];
     $course = $row['course'];
     $position = $row['position'];
+    $profile_picture = $row['profile_picture'];
 
 } else {
     $full_name = "User";
@@ -33,6 +34,7 @@ if ($result->num_rows > 0) {
     $contact = "N/A";
     $course = "N/A";
     $position="N/A";
+    $profile_picture ="N/A";
 }
 
 ?>
@@ -40,19 +42,24 @@ if ($result->num_rows > 0) {
 
 <div class="container">
     <h1>Profile</h1>
+
+    <button type="button" id="editProfileButton" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+        Edit Profile
+    </button>
+
+
+    <script>
+        // Add an event listener to the button
+        document.getElementById('editProfileButton').addEventListener('click', function() {
+            // Redirect to editProfile.php when the button is clicked
+            window.location.href = 'editProfile.php';
+        });
+    </script><br><br>
+    <?php
+    echo '<tr><td><img src="/ThemeGrill/View/' . $profile_picture . '" alt="Profile Picture" style="align-content: center"></td></tr>';
+    ?>
     <table class="table table-bordered">
-        <button type="button" id="editProfileButton" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-            Edit Profile
-        </button>
 
-
-        <script>
-            // Add an event listener to the button
-            document.getElementById('editProfileButton').addEventListener('click', function() {
-                // Redirect to editProfile.php when the button is clicked
-                window.location.href = 'editProfile.php';
-            });
-        </script>
 
 
         <tr>

@@ -5,7 +5,7 @@ session_start();
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
     // Redirect to the login page if not logged in
-    header("Location: login.php");
+    header("Location: http://localhost/ThemeGrill/View/login.php");
     exit();
 }
 
@@ -57,7 +57,7 @@ if ($result->num_rows > 0) {
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="">Theme Grill</a>
+            <a class="navbar-brand" href="profile.php">Theme Grill</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="profile.php">Profile</a></li>

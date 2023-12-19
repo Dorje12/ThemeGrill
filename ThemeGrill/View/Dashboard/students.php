@@ -2,6 +2,7 @@
 global $conn;
 require ('dashboard.php');
 
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -38,27 +39,20 @@ if ($result->num_rows > 0) {
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
-                <th>Age</th>
-                <th>Contact</th>
-                <th>Course</th>
-                <th>Profile Picture</th>
+                <th>View Profile</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($students as $student) : ?>
                 <tr>
-                    <td><?php echo $student['id']; ?></td>
                     <td><?php echo $student['first_name']; ?></td>
                     <td><?php echo $student['last_name']; ?></td>
                     <td><?php echo $student['email']; ?></td>
-                    <td><?php echo $student['age']; ?></td>
-                    <td><?php echo $student['contact']; ?></td>
-                    <td><?php echo $student['course']; ?></td>
-                    <td><img src="/ThemeGrill/View/<?php echo $student['profile_picture']; ?>" alt="Profile Picture" style="max-width: 100px; max-height: 100px;"></td>
+                    <td><a href="studentProfile.php?id=<?php echo $student['id']; ?>">View Information</a></td>
+
                 </tr>
             <?php endforeach; ?>
             </tbody>

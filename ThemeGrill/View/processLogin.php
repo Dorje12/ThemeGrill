@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['user_email'] = $row['email'];
-            header("Location: Dashboard/dashboard.php"); // Change this to the desired dashboard or home page
+            header("Location: Dashboard/profile.php"); // Change this to the desired dashboard or home page
             exit();
         } else {
             echo "Invalid password. Please try again.";

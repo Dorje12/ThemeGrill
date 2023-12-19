@@ -45,6 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($conn->query($sql) === TRUE) {
             // Data updated successfully
+
+            header("Location: http://localhost/ThemeGrill/View/Dashboard/students.php");
             echo "Data updated successfully";
         } else {
             // Error updating data
@@ -89,7 +91,7 @@ if ($result->num_rows > 0) {
     <title>Sign Up</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 </head>
 <body>
 <div class="container">
@@ -98,7 +100,6 @@ if ($result->num_rows > 0) {
         <div class="form-group">
             <label for="first_name">First Name</label>
             <input type="text" class="form-control" name="first_name" id="first_name" aria-describedby="nameHelp" placeholder="First Name" value="<?php echo $first_name; ?>" required>
-
         </div><br>
 
         <div class="form-group">
@@ -158,6 +159,11 @@ if ($result->num_rows > 0) {
             <label for="exampleInputPassword1">Confirm Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" name="conform_password" placeholder="Confirm Password" required>
 
+        </div><br>
+
+        <div class="form-group">
+            <label for="profile_picture">Profile Picture</label>
+            <input type="file" class="form-control" name="profile_picture" id="profile_picture" accept="image/*">
         </div><br>
 
         <button type="submit" class="btn btn-primary">Update </button>
