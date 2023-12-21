@@ -2,19 +2,19 @@
 global $conn;
 require('dashboard.php');
 
-// Check if the user is logged in
+
 if (!isset($_SESSION['user_id'])) {
-    // Redirect to the login page if not logged in
+
     header("Location: login.php");
     exit();
 }
 
-// Include the connection.php file to establish a database connection
+
 require('C:\xampp\htdocs\ThemeGrill\connection.php');
 
-// Check if the form is submitted
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Fetch and sanitize form data
+    
     $first_name = htmlspecialchars($_POST['first_name']);
     $last_name = htmlspecialchars($_POST['last_name']);
     $email = htmlspecialchars($_POST['email']);
@@ -25,13 +25,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = htmlspecialchars($_POST['password']);
     $confirm_password = htmlspecialchars($_POST['conform_password']);
 
-    // Validate and update data
+
     if ($password === $confirm_password) {
-        // Hash the password
+
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Update user data
-        $user_id = $_SESSION['user_id'];
+
+        $user_id = $_GET['id'];
         $sql = "UPDATE students SET 
                 first_name = '$first_name',
                 last_name = '$last_name',
@@ -44,22 +44,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 WHERE id = $user_id";
 
         if ($conn->query($sql) === TRUE) {
-            // Data updated successfully
 
-            header("Location: http://localhost/ThemeGrill/View/Dashboard/students.php");
             echo "Data updated successfully";
         } else {
-            // Error updating data
+
             echo "Error updating data: " . $conn->error;
         }
     } else {
-        // Passwords do not match
+
         echo "Passwords do not match";
     }
 }
 
-// Fetch current user data for pre-filling the form
-$user_id = $_SESSION['user_id'];
+
+$user_id = $_GET['id'];
 $sql = "SELECT * FROM students WHERE id = $user_id";
 $result = $conn->query($sql);
 
@@ -72,7 +70,7 @@ if ($result->num_rows > 0) {
     $contact = $row['contact'];
     $course = $row['course'];
     $position = $row['position'];
-    // Do not fetch password for security reasons
+
 } else {
     $first_name = "N/A";
     $last_name = "N/A";
@@ -100,6 +98,7 @@ if ($result->num_rows > 0) {
         <div class="form-group">
             <label for="first_name">First Name</label>
             <input type="text" class="form-control" name="first_name" id="first_name" aria-describedby="nameHelp" placeholder="First Name" value="<?php echo $first_name; ?>" required>
+
         </div><br>
 
         <div class="form-group">
@@ -143,7 +142,7 @@ if ($result->num_rows > 0) {
             <label for="course">Position</label><br>
             <label>
                 <select class="form-control" name="position" value="<?php echo $position; ?>" required>
-                    <option value="teacher">teacher</option>
+                    <option value="student">student</option>
 
                 </select>
             </label>
@@ -159,11 +158,6 @@ if ($result->num_rows > 0) {
             <label for="exampleInputPassword1">Confirm Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" name="conform_password" placeholder="Confirm Password" required>
 
-        </div><br>
-
-        <div class="form-group">
-            <label for="profile_picture">Profile Picture</label>
-            <input type="file" class="form-control" name="profile_picture" id="profile_picture" accept="image/*">
         </div><br>
 
         <button type="submit" class="btn btn-primary">Update </button>

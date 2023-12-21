@@ -2,17 +2,17 @@
 global $conn;
 require('dashboard.php');
 
-// Check if the user is logged in
+
 if (!isset($_SESSION['user_id'])) {
-    // Redirect to the login page if not logged in
+
     header("Location: login.php");
     exit();
 }
 
-// Include the connection.php file to establish a database connection
+
 require('C:\xampp\htdocs\ThemeGrill\connection.php');
 
-// Get user details from the database based on the user_id stored in the session
+
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT * FROM students WHERE id = $user_id";
 $result = $conn->query($sql);
@@ -47,9 +47,9 @@ if ($result->num_rows > 0) {
     </button>
 
     <script>
-        // Add an event listener to the button
+
         document.getElementById('editProfileButton').addEventListener('click', function () {
-            // Redirect to editProfile.php when the button is clicked
+
             window.location.href = 'editProfile.php';
         });
     </script><br><br>

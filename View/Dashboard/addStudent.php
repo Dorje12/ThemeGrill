@@ -14,7 +14,7 @@ require('dashboard.php');
 </head>
 <body>
 <div class="container">
-    <form method="POST" action="studentRegistration.php" enctype="multipart/form-data"> <!-- Add 'enctype' attribute for file upload -->
+    <form method="POST" action="studentRegistration.php" enctype="multipart/form-data"> 
         <div><h1>Register</h1></div><br>
 
         <div class="form-group">

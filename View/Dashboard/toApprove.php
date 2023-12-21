@@ -3,7 +3,7 @@ global $conn;
 require('C:\xampp\htdocs\ThemeGrill\connection.php');
 require('dashboard.php');
 
-// Fetch users with 'Pending' status
+
 $pendingUsersQuery = "SELECT * FROM students WHERE status = 'Pending' AND position='student'";
 $result = $conn->query($pendingUsersQuery);
 ?>
@@ -15,7 +15,7 @@ $result = $conn->query($pendingUsersQuery);
 
     <style>
         body {
-            background-color: #f8f9fa; /* Set a light background color */
+            background-color: #f8f9fa; 
         }
 
         .container {
@@ -47,12 +47,12 @@ $result = $conn->query($pendingUsersQuery);
         }
 
         .approve-button {
-            background-color: #4CAF50; /* Green */
+            background-color: #4CAF50; 
             color: #fff;
         }
 
         .reject-button {
-            background-color: #f44336; /* Red */
+            background-color: #f44336; 
             color: #fff;
         }
     </style>

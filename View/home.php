@@ -27,7 +27,7 @@ require ('header.php');
 </head>
 <body>
 
-<!-- Hero Section -->
+
 <div class="jumbotron">
     <div class="container">
         <h1>Welcome to ThemeGrill Institute</h1>
@@ -37,7 +37,6 @@ require ('header.php');
 
 
 
-<!-- Bootstrap JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 

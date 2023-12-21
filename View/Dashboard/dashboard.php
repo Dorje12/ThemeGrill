@@ -2,17 +2,17 @@
 global $conn;
 session_start();
 
-// Check if the user is logged in
+
 if (!isset($_SESSION['user_id'])) {
-    // Redirect to the login page if not logged in
+
     header("Location: http://localhost/ThemeGrill/View/login.php");
     exit();
 }
 
-// Include the connection.php file to establish a database connection
+
 require('C:\xampp\htdocs\ThemeGrill\connection.php');
 
-// Get user details from the database based on the user_id stored in the session
+
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT first_name, last_name FROM students WHERE id = $user_id";
 $result = $conn->query($sql);
@@ -32,24 +32,24 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <!-- Bootstrap CSS -->
+   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!-- Font Awesome CSS -->
+    <
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
-            padding-top: 70px; /* Adjusted padding for better spacing */
-            background-color: #f8f9fa; /* Added a light background color */
+            padding-top: 70px;
+            background-color: #f8f9fa;
         }
 
         .navbar {
-            background-color: #007bff; /* Updated navbar color */
+            background-color: #007bff;
             color: white;
-            border-radius: 0; /* Remove border-radius for a modern look */
+            border-radius: 0;
         }
 
         .navbar-brand {
-            font-size: 1.5em; /* Increased font size for the brand */
+            font-size: 1.5em;
         }
 
         .navbar-right {
@@ -78,7 +78,6 @@ if ($result->num_rows > 0) {
     </div>
 </nav>
 
-<!-- Add your content below this line -->
 
 </body>
 

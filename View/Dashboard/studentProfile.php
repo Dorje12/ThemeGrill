@@ -8,11 +8,11 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Retrieve the student ID from the URL parameter
+
 if (isset($_GET['id'])) {
     $student_id = $_GET['id'];
 
-    // Fetch the student details from the database based on the provided ID
+
     $sql = "SELECT * FROM students WHERE id = $student_id";
     $result = $conn->query($sql);
 
@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
         $position = $row['position'];
         $profile_picture = $row['profile_picture'];
 
-        // Display the student information
+        
         echo '<div class="container">';
         echo '<h1>Student Information</h1>';
         ?>
@@ -57,17 +57,17 @@ if (isset($_GET['id'])) {
             </button>
             <br><br>
             <script>
-                // Add an event listener to the button
+
                 document.getElementById('editProfileButton').addEventListener('click', function () {
-                    // Redirect to editStudent.php with the student ID
+
                     window.location.href = 'editStudent.php?id=<?php echo $student_id; ?>';
                 });
             </script>
 
             <script>
-                // Add an event listener to the button
+
                 document.getElementById('deleteProfileButton').addEventListener('click', function () {
-                    // Redirect to deleteStudent.php with the student ID
+
                     window.location.href = 'deleteStudent.php?id=<?php echo $student_id; ?>';
                 });
             </script>
@@ -87,14 +87,14 @@ if (isset($_GET['id'])) {
         echo '</table>';
         echo '</div>';
     } else {
-        // Handle the case where the student ID is not found
+
         echo '<div class="container">';
         echo '<h1>Student Not Found</h1>';
         echo '<p>The requested student information could not be found.</p>';
         echo '</div>';
     }
 } else {
-    // Handle the case where the student ID is not provided
+
     echo '<div class="container">';
     echo '<h1>Invalid Request</h1>';
     echo '<p>Invalid request. Please provide a valid student ID.</p>';
