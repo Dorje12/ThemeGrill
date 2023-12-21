@@ -1,6 +1,6 @@
 <?php
 global $conn;
-require ('dashboard.php');
+require('dashboard.php');
 
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
@@ -33,35 +33,32 @@ if ($result->num_rows > 0) {
     $age = "N/A";
     $contact = "N/A";
     $course = "N/A";
-    $position="N/A";
-    $profile_picture ="N/A";
+    $position = "N/A";
+    $profile_picture = "N/A";
 }
 
 ?>
 
-
 <div class="container">
     <h1>Profile</h1>
 
-    <button type="button" id="editProfileButton" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+    <button type="button" id="editProfileButton" class="btn btn-primary">
         Edit Profile
     </button>
 
-
     <script>
         // Add an event listener to the button
-        document.getElementById('editProfileButton').addEventListener('click', function() {
+        document.getElementById('editProfileButton').addEventListener('click', function () {
             // Redirect to editProfile.php when the button is clicked
             window.location.href = 'editProfile.php';
         });
     </script><br><br>
-    <?php
-    echo '<tr><td><img src="/ThemeGrill/View/' . $profile_picture . '" alt="Profile Picture" style="align-content: center"></td></tr>';
-    ?>
-    <table class="table table-bordered">
 
+    <div class="text-center">
+        <img src="/ThemeGrill/View/<?php echo $profile_picture; ?>" alt="Profile Picture" class="img-circle img-thumbnail" style="width: 200px; height: 200px;">
+    </div>
 
-
+    <table class="table table-bordered mt-4">
         <tr>
             <th>Full Name</th>
             <td><?php echo $full_name; ?></td>
@@ -69,7 +66,7 @@ if ($result->num_rows > 0) {
         <tr>
             <th>Email</th>
             <td><?php echo $email; ?></td>
-
+        </tr>
         <tr>
             <th>Age</th>
             <td><?php echo $age; ?></td>
@@ -86,8 +83,6 @@ if ($result->num_rows > 0) {
             <th>Course</th>
             <td><?php echo $course; ?></td>
         </tr>
-
     </table>
 </div>
 </body>
-

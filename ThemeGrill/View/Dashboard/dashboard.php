@@ -32,15 +32,24 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
-            padding-top: 50px;
+            padding-top: 70px; /* Adjusted padding for better spacing */
+            background-color: #f8f9fa; /* Added a light background color */
         }
 
         .navbar {
-            background-color: #337ab7;
+            background-color: #007bff; /* Updated navbar color */
             color: white;
+            border-radius: 0; /* Remove border-radius for a modern look */
+        }
+
+        .navbar-brand {
+            font-size: 1.5em; /* Increased font size for the brand */
         }
 
         .navbar-right {
@@ -60,15 +69,16 @@ if ($result->num_rows > 0) {
             <a class="navbar-brand" href="profile.php">Theme Grill</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="profile.php">Profile</a></li>
-            <li><a href="toApprove.php">Approve Students</a></li>
-            <li><a href="students.php">Students</a></li>
+            <li><a href="profile.php"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="toApprove.php"><i class="fas fa-check"></i> Approve Students</a></li>
+            <li><a href="students.php"><i class="fas fa-graduation-cap"></i> Students</a></li>
             <li class="navbar-text navbar-right"><?php echo $full_name; ?></li>
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
-
     </div>
 </nav>
+
+<!-- Add your content below this line -->
 
 </body>
 

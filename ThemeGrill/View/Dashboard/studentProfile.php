@@ -29,32 +29,44 @@ if (isset($_GET['id'])) {
 
         // Display the student information
         echo '<div class="container">';
-        echo '<h1>Student Information</h1>';?>
+        echo '<h1>Student Information</h1>';
+        ?>
         <style>
             .tab {
                 display: inline-block;
-                margin-left: 40px;
+                margin-left: 20px;
+            }
+
+            .button-container {
+                margin-top: 20px;
+            }
+
+            .profile-picture {
+                border-radius: 50%;
+                max-width: 200px;
             }
         </style>
-        <div class="container">
-            <button type="button" id="editProfileButton" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+
+        <div class="container button-container">
+            <button type="button" id="editProfileButton" class="btn btn-primary">
                 Edit Profile
-            </button><span class="tab"></span>
-            <button type="button" id="deleteProfileButton" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+            </button>
+            <span class="tab"></span>
+            <button type="button" id="deleteProfileButton" class="btn btn-danger">
                 Delete Profile
             </button>
             <br><br>
             <script>
                 // Add an event listener to the button
-                document.getElementById('editProfileButton').addEventListener('click', function() {
-                    // Redirect to deleteStudent.php with the student ID
+                document.getElementById('editProfileButton').addEventListener('click', function () {
+                    // Redirect to editStudent.php with the student ID
                     window.location.href = 'editStudent.php?id=<?php echo $student_id; ?>';
                 });
             </script>
 
             <script>
                 // Add an event listener to the button
-                document.getElementById('deleteProfileButton').addEventListener('click', function() {
+                document.getElementById('deleteProfileButton').addEventListener('click', function () {
                     // Redirect to deleteStudent.php with the student ID
                     window.location.href = 'deleteStudent.php?id=<?php echo $student_id; ?>';
                 });
@@ -62,8 +74,10 @@ if (isset($_GET['id'])) {
         </div>
 
         <?php
-        echo '<tr><td><img src="/ThemeGrill/View/' . $profile_picture . '" alt="Profile Picture"></td></tr>';
-        echo '<table class="table table-bordered">';
+        echo '<div class="text-center">';
+        echo '<img src="/ThemeGrill/View/' . $profile_picture . '" alt="Profile Picture" class="img-thumbnail profile-picture">';
+        echo '</div>';
+        echo '<table class="table table-bordered mt-4">';
         echo '<tr><th>Full Name</th><td>' . $full_name . '</td></tr>';
         echo '<tr><th>Email</th><td>' . $email . '</td></tr>';
         echo '<tr><th>Age</th><td>' . $age . '</td></tr>';
